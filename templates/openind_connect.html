@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>OIDC RP</title>
+
+</head>
+<body>
+
+<center>
+    <h1>OpenID Connect RP Example</h1>
+    <button id="login-button">Login</button>
+</center>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://www.sakimura.org/test/openidconnect.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var clientInfo = {
+            client_id : '1083566860376-fj1t1ugrj99ebe3c2obc1hpr1dmpk2ja.apps.googleusercontent.com',
+            client_secret : 'ZQsJjf5m4QPqeUGywKVIE-Rp' ,
+            redirect_uri : 'http://localhost:8000/'
+        };
+
+        OIDC.setClientInfo(clientInfo);
+
+        var providerInfo = OIDC.discover('https://accounts.google.com');
+
+        OIDC.setProviderInfo(providerInfo);
+        OIDC.storeInfo(providerInfo, clientInfo);
+
+        // Restore configuration information.
+        OIDC.restoreInfo();
+
+        // Get Access Token
+        var token = OIDC.getAccessToken();
+        // Make userinfo request using access_token.
+        if (token !== null) {
+            //$.get('https://www.googleapis.com/plus/v1/people/me/openIdConnect/?access_token='+token, function( data ) {
+              //  alert('USERINFO: '+ JSON.stringify(data));
+           // });
+        }
+
+        // Make an authorization request if the user click the login button.
+        $('#login-button').click(function (event) {
+            OIDC.login({
+                scope : 'openid email',
+                response_type : 'id_token token'
+            });
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -5,8 +5,10 @@ from rest_framework.authtoken import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('oidc_app.urls')),
     url(r'^api/v1/login/', include('profiles.urls')),
     url(r'^api/v1/sample/', include('sample.urls')),
+
 ]
 
 urlpatterns += [

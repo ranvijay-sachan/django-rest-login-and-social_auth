@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'social.apps.django_app.default',
     'profiles',
     'sample',
+
 ]
 
 MIDDLEWARE = [
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'zymr_rocks.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "..templates"),],
+        'DIRS': [os.path.join(BASE_DIR, "templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,7 +121,7 @@ REST_FRAMEWORK = {
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
     'social.backends.google.GoogleOAuth2',
-    'social.backends.twitter.TwitterOAuth',
+    'social.backends.google.GoogleOpenIdConnect',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -156,10 +157,9 @@ SOCIAL_AUTH_FACEBOOK_KEY = ''
 SOCIAL_AUTH_FACEBOOK_SECRET = ''
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
-SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email']
-
+SOCIAL_AUTH_GOOGLE_OPENIDCONNECT_KEY = '1083566860376-fj1t1ugrj99ebe3c2obc1hpr1dmpk2ja.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OPENIDCONNECT_SECRET = 'ZQsJjf5m4QPqeUGywKVIE-Rp'
+SOCIAL_AUTH_GOOGLE_OPENIDCONNECT_SCOPE = ['openid', 'email', 'profile']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
