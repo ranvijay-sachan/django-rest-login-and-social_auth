@@ -14,5 +14,5 @@ class AuthBackend(object):
         return {
             BackendType.AUTH: "auth",
             BackendType.FACEBOOK: "facebook",
-            BackendType.GOOGLE: "google-oauth2",
+            BackendType.GOOGLE: "google-openidconnect",
         }[int(backend)]
