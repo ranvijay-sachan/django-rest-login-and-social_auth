@@ -37,6 +37,7 @@
         var token = OIDC.getAccessToken();
         // Make userinfo request using access_token.
         if (token !== null) {
+            alert(token)
             //$.get('https://www.googleapis.com/plus/v1/people/me/openIdConnect/?access_token='+token, function( data ) {
               //  alert('USERINFO: '+ JSON.stringify(data));
            // });
