@@ -1,5 +1,7 @@
 # django-rest-login-and-social_auth
-Ex: 
+Example: 
+
+
 Frontend: 
 http://localhost:8000
 
