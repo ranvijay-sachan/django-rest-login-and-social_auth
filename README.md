@@ -7,7 +7,7 @@ http://localhost:8000
 
 Login with google and copy alert token.
 
-Backend:
+Backend: POST:  
 http://localhost:8000/api/v1/login/3/
 
 Content-Type : application/json
